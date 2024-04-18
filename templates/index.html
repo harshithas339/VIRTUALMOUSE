@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gesture Controller</title>
+    <link rel="stylesheet" href="https://pyscript.net/releases/2024.1.1/core.css" />
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <h1><u>Gesture Controller</u></h1>
+    <button onclick="startGestureController()"><b>Start Gesture Controller</b></button>
+    <button onclick="stopGestureController()"><b>Stop Gesture Controller</b></button>
+    <div id="message"></div>
+    <button onclick="openRules()"><b>Help</b></button>
+    <button onclick="exit()"><b>Exit</b></button>
+
+    <script>
+        function startGestureController() {
+            fetch('/start', {
+                method: 'POST'
+            })
+            .then(response => {
+                if (response.ok) {
+                    document.getElementById('message').innerText = 'Gesture Controller started successfully!';
+                } else {
+                    document.getElementById('message').innerText = 'Failed to start Gesture Controller!';
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                document.getElementById('message').innerText = 'Failed to start Gesture Controller!';
+            });
+        }
+
+        function stopGestureController() {
+            fetch('/stop', {
+                method: 'POST'
+            })
+            .then(response => {
+                if (response.ok) {
+                    document.getElementById('message').innerText = 'Gesture Controller stopped successfully!';
+                } else {
+                    document.getElementById('message').innerText = 'Failed to stop Gesture Controller!';
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                document.getElementById('message').innerText = 'Failed to stop Gesture Controller!';
+            });
+        }
+
+        function openRules() {
+            window.location.href = './rules.html';
+        }
+
+        function exit() {
+            if (confirm("Are you sure you want to exit?")) {
+                window.close(); // Close the current window/tab
+            }
+        }
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gesture Controller</title>
+    <link rel="stylesheet" href="https://pyscript.net/releases/2024.1.1/core.css" />
+
+    <style>
+        /* Add your CSS styles here */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            background-image: url('virtual.jpg');
+            background-size: cover; /* Cover the entire page */
+            background-repeat: no-repeat; /* Do not repeat the image */
+            background-position: cover; 
+        }
+        .container {
+            margin-top: 100px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+        <h1>Gesture Controller</h1>
+        <button id="startBtn">Start Gesture Controller</button>
+        <button id="stopBtn">Stop Gesture Controller</button>
+        <button id="exitBtn">Exit</button><br>
+        <a href="rules.html"><button id="helpbtn">Help</button></a>
+    </div>
+
+
+    <script>
+        // Add your JavaScript code here
+        document.getElementById("startBtn").addEventListener("click", function() {
+            // Replace "path/to/gesture_controller.py" with the actual path to your Python script
+            window.open("src/Gesture_Controller.py");
+        });
+
+        document.getElementById("stopBtn").addEventListener("click", function() {
+            // Implement stopping of Gesture Controller here (if needed)
+            console.log("Stopping Gesture Controller...");
+        });
+
+        document.getElementById("exitBtn").addEventListener("click", function() {
+            if (confirm("Are you sure you want to exit?")) {
+                window.close();
+            }
+        });
+    </script>
+</body>
+</html>
